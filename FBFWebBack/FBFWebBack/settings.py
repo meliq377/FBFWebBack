@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     # Custom apps
     "accounts",
     "millionaire",
+    "quiz",
 ]
 
 AUTHENTICATION_BACKENDS = (
