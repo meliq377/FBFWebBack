@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "djoser",
     "drf_spectacular",
+    "import_export",
 
     # Social authentication
     "social_django",
