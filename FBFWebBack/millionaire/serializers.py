@@ -11,4 +11,4 @@ class GameSessionSerializer(ModelSerializer):
     class Meta:
         model = GameSession
         fields = "__all__"
-        read_only_fields = ["user", "is_active"]  # Այս դաշտերը swagger-ում editable չլինեն
+        read_only_fields = ["user", "is_active"]  
