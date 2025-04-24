@@ -10,7 +10,7 @@ class Lesson(models.Model):
     lesson_video = models.FileField(upload_to='lesson_videos/')
 
     def __str__(self):
-        return self.lesson_title
+        return self.lesson_title    
     
 class Module(models.Model):
     module_title = models.CharField(max_length=100)
