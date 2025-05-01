@@ -6,8 +6,8 @@ from django.db import models
 class Lesson(models.Model):
     lesson_title = models.CharField(max_length=100)
     lesson_description = models.CharField(max_length=1000)
-    lesson_image = models.ImageField(upload_to='lesson_images/')
-    lesson_video = models.FileField(upload_to='lesson_videos/')
+    lesson_image = models.ImageField(upload_to='media/')
+    lesson_video = models.FileField(upload_to='videos/', blank=True, null=True)
 
     def __str__(self):
         return self.lesson_title    
@@ -15,7 +15,7 @@ class Lesson(models.Model):
 class Module(models.Model):
     module_title = models.CharField(max_length=100)
     module_description = models.CharField(max_length=1000)
-    module_image = models.ImageField(upload_to='module_images/')
+    module_image = models.ImageField(upload_to='media/', blank=True, null=True)
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -24,7 +24,7 @@ class Module(models.Model):
 class Slide(models.Model):
     slide_title = models.CharField(max_length=100)
     slide_text = models.TextField(max_length=1000)
-    slide_image = models.ImageField(upload_to='slide_images/')
+    slide_image = models.ImageField(upload_to='media/')
     module = models.ForeignKey(Module, on_delete=models.CASCADE)
 
     def __str__(self):
