@@ -39,12 +39,13 @@ class LessonDetailView(APIView):
             return Response({"error": "Lesson not found"}, status=status.HTTP_404_NOT_FOUND)
 
 
-class ModuleListView(APIView):
+class LessonModuleListView(APIView):
     """
-    Retrieve all modules with their related slides and quizzes.
+    Retrieve all modules for a specific lesson (with slides and quizzes).
     """
-    def get(self, request, *args, **kwargs):
-        modules = Module.objects.all()
+
+    def get(self, request, lesson_id, *args, **kwargs):
+        modules = Module.objects.filter(lesson_id=lesson_id)
         serializer = ModuleSerializer(modules, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
